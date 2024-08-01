@@ -48,8 +48,13 @@ const CreateTodo = () => {
 
       navigate("/profile");
     } catch (error) {
-      console.error("Error during creating todo:", error.response.data);
-      alert("Error creating todo, please try again.");
+      console.log(currentUser.data.user._id);
+      if (!currentUser) {
+        alert("You need to login first to create any todo");
+      } else {
+        console.error("Error during creating todo:", error.response.data);
+        alert("Error creating todo, please try again.");
+      }
     }
 
     addPost(formData.userId, formData.todoName, formData.date);
@@ -58,6 +63,12 @@ const CreateTodo = () => {
   return (
     <div className="create__post">
       <form className="form create_post__form" onSubmit={handleSubmit}>
+        <p className="text-center bg-transparent">
+          {!currentUser
+            ? " you need to be logged in first before adding any todo "
+            : ""}
+        </p>
+
         <h1 className="text-center text-white bg-transparent">Create Todo</h1>
 
         <div className="mb-3 bg-transparent">
