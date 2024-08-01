@@ -59,27 +59,7 @@ const CreateTodo = () => {
     <div className="create__post">
       <form className="form create_post__form" onSubmit={handleSubmit}>
         <h1 className="text-center text-white bg-transparent">Create Todo</h1>
-        {/* <p className="bg-transparent text-light">
-          {" "}
-          Id: {currentUser.data.user._id}
-        </p> */}
-        <div className="mb-3 input__fields bg-transparent">
-          <label
-            htmlFor="userId"
-            className="form-label bg-transparent text-white"
-          >
-            Enter Your User Id here from Profile
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="userId"
-            name="userId"
-            value={formData.userId}
-            onChange={handleChange}
-            placeholder="Enter your user Id "
-          />
-        </div>
+
         <div className="mb-3 bg-transparent">
           <label
             htmlFor="todoName"
